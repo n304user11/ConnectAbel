@@ -1,0 +1,187 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<title>ConnectAbel</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="themes/jquery.mobile.icons.min.css">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" /> 
+<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/main_page_style.css">
+<link href="css/photo.css" rel="stylesheet" type="text/css">
+<!--Star rating plugin css-->
+<link rel="stylesheet" type="text/css" href="script/star_plugin/jquery.rating.css">
+<!---->
+<link href="css/event.css" rel="stylesheet" type="text/css">
+
+
+<!--Script links-->
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="script/respond.min.js"></script>
+    <script src="script/jimmy_jquery.js"></script>
+<!--star rating plugin js-->
+<script src="script/star_plugin/jquery.MetaData.js"></script>
+<script src="script/star_plugin/jquery.rating.js"></script>
+<script src="script/star_plugin/jquery.rating.pack.js"></script>
+<!---->
+<!--End script link-->
+
+ <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--Jquery mobile-->
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+
+<body>
+
+
+<section id="login_stripe">Welcome, <strong>Jimmy</strong>
+  <button id="logout_btn">Log out</button>
+</section>
+<div id="div_event" class="fluid">
+<form>
+    <input  placeholder="Search.." autocomplete="on" autofocus data-type="search" id="filterTable-input">
+</form>
+<table data-role="table" id="event-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+	<caption>Event List</caption>
+    <thead>
+        <tr>
+            <th data-priority="1">Catergories</th>
+            <th data-priority="persist">Distance</th>
+            <th data-priority="2">Time created</th>
+            <th data-priority="3">Joined</th>
+			<th>Notes</th>
+            <th>Ratings</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr class="clean-up"><a href="/people.html"></a>
+                <th>CLEANING UP THE ENVIRONMENT</th>
+                <td>2 km</td>
+                <td><span class="time_highlight">15</span> minutes ago</td>
+                <td>
+                	3 people</td>
+                 <td>
+                    Go around and pick up trash with me
+                </td>
+                <td><input name="star1" type="radio" class="star"/>
+                    <input name="star1" type="radio" class="star"/>
+                    <input name="star1" type="radio" class="star"/>
+                    <input name="star1" type="radio" class="star"/>
+                    <input name="star1" type="radio" class="star"/></td>                
+            </tr>
+            <tr class="discover">
+                <th>DISCOVERY</th>
+                <td>3 km</td>
+                <td><span class="time_highlight">2</span> hours ago</td>
+                <td>2 people</td>
+                <td>
+                    Have fun exploring together?!</td>
+                <td><input name="star2" type="radio" class="star"/>
+                    <input name="star2" type="radio" class="star"/>
+                    <input name="star2" type="radio" class="star"/>
+                    <input name="star2" type="radio" class="star"/>
+                    <input name="star2" type="radio" class="star"/></td>
+            </tr>
+            <tr class="other">
+                <th>OTHERS</th>
+                <td>5 km</td>
+                <td><span class="time_highlight">3</span> hours ago</td>
+                <td>12 people</td>
+                <td>Kayak time!</td>
+                <td><input name="star7" type="radio" class="star"/>
+                    <input name="star7" type="radio" class="star"/>
+                    <input name="star7" type="radio" class="star"/>
+                    <input name="star7" type="radio" class="star"/>
+                    <input name="star7" type="radio" class="star"/></td>
+            </tr>
+            <tr class="plant-tree">
+                <th>PLANTING TREES</th>
+                <td>0.3 km</td>
+                <td><span class="time_highlight">24</span> hours ago</td>
+                <td>2 people</td>
+                <td>
+                    For kids.</td>
+                <td><input name="star6" type="radio" class="star"/>
+                    <input name="star6" type="radio" class="star"/>
+                    <input name="star6" type="radio" class="star"/>
+                    <input name="star6" type="radio" class="star"/>
+                    <input name="star6" type="radio" class="star"/></td>
+            </tr>
+                        <tr class="clean-up">
+                <th>CLEANING UP THE ENVIRONMENT</th>
+                <td>10 km</td>
+                <td><span class="time_highlight">2</span> minutes ago</td>
+                <td>
+                	3 people</td>
+                 <td>
+                </td>
+                <td><input name="star4" type="radio" class="star"/>
+                    <input name="star4" type="radio" class="star"/>
+                    <input name="star4" type="radio" class="star"/>
+                    <input name="star4" type="radio" class="star"/>
+                    <input name="star4" type="radio" class="star"/></td>                
+            </tr>
+            <tr class="discover">
+                <th>DISCOVERY</th>
+                <td>13 km</td>
+                <td><span class="time_highlight">20</span> hours ago</td>
+                <td>2 people</td>
+                <td>
+                    Bug time guys!
+                </td>
+                <td><input name="star5" type="radio" class="star"/>
+                    <input name="star5" type="radio" class="star"/>
+                    <input name="star5" type="radio" class="star"/>
+                    <input name="star5" type="radio" class="star"/>
+                    <input name="star5" type="radio" class="star"/></td>
+            </tr>
+            <tr class="plant-tree">
+                <th>PLANTING TREES</th>
+                <td>0.7 km</td>
+                <td><span class="time_highlight">2</span> hours ago</td>
+                <td>2 people</td>
+                <td>
+                   Make it green!
+                </td>
+                <td><input name="star3" type="radio" class="star"/>
+                    <input name="star3" type="radio" class="star"/>
+                    <input name="star3" type="radio" class="star"/>
+                    <input name="star3" type="radio" class="star"/>
+                    <input name="star3" type="radio" class="star"/></td>
+            </tr>
+        </tbody>
+  </table>
+    </div>
+
+ 
+<!--Nav bar -->
+<section id="site_footer">
+  <a href="people.html">
+  <button class="footer_btn">
+       <img src="img/back_icon.png" alt="" width="20" height="18" id="back_icon"/>
+  </button>
+  </a>
+  <a href="main.html">
+  <button class="footer_btn home">
+       <img src="img/Home_icon.png" alt="" width="20" height="18" id="home_icon"/>
+  </button>
+  </a>
+  <a href="people.html">
+  <button class="footer_btn">
+    <img src="img/forward_icon.png" alt="" width="20" height="18" id="forward_icon"/>
+  </button>
+  </a>
+</section>
+
+</body>
+</html>

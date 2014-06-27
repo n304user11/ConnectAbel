@@ -1,0 +1,177 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<title>ConnectAbel</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/main_page_style.css">
+<link href="css/photo.css" rel="stylesheet" type="text/css">
+
+<!--Script links-->
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="script/respond.min.js"></script>
+<!--End script link-->
+
+ <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+    <style>
+     html, #map-canvas {
+	height: 100%;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+      }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd6qfQRhjyx-59w8Ydl4OG1EwDE-goGcw">
+    </script>
+    <script type="text/javascript">
+      
+      function initialize() {
+        
+        var image_photo = 'img/_map_assets/icon_photo.png';
+        var image_me = 'img/_map_assets/icon_me.png';
+        var myLatlng = new google.maps.LatLng(-40.933746, 173.031120);
+        
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 15
+          
+        };
+         
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        
+        //  Map Mark 
+        var marker = new google.maps.Marker({
+            position: map.getCenter(),
+            map: map,
+            icon: image_me
+           
+           });
+           
+         
+         // Place Mark on map 
+         google.maps.event.addListener(map, 'click', function(event) {
+               placeMarker(event.latLng);
+          });
+          
+          
+          // Add 3 marks to the map at random locations within park's region. 
+          var southWest = new google.maps.LatLng(-41.014102, 172.779007);
+          var northEast = new google.maps.LatLng(-40.764941, 173.089371);
+          var pos1 = new google.maps.LatLng(-40.864331, 173.017811);
+          var pos2 = new google.maps.LatLng(-40.948297, 173.046567);
+		  var pos3 = new google.maps.LatLng(-40.889567, 173.051123);
+
+          var bounds = new google.maps.LatLngBounds(southWest,northEast);
+                     map.fitBounds(bounds);
+          var lngSpan = northEast.lng() - southWest.lng();
+          var latSpan = northEast.lat() - southWest.lat();
+          
+         
+         // Coast photos
+          var marker1 = new google.maps.Marker({
+                           position: pos1,
+                           map: map,
+						   animation: google.maps.Animation.DROP,
+                           icon: image_photo
+                         });
+           var contentString1 = 	'<div style="color:black">'+
+		   						'<img style="float:left" src="img/_map_assets/uploads/001.jpg" width="50%" height="auto" float="left" alt=""/>'+
+								'<div style="margin-left:220px">'+
+     							'<p><h1 style="color:#2980b9">Micheal J.</h1>Look at this coast, you will love it. By the way, they have horses to travel!!' +
+		   						'</div>';
+           var infowindow1 = new google.maps.InfoWindow({
+                      content: contentString1
+                 });    
+           google.maps.event.addListener(marker1, 'click', function() {
+                 infowindow1.open(map,marker1);
+               });
+			   
+         // Second photos
+          var marker2 = new google.maps.Marker({
+                           position: pos2,
+                           map: map,
+						   animation: google.maps.Animation.DROP,
+                           icon: image_photo
+                         });
+           var contentString2 = 	'<div id="content" style="color:black">'+
+		   						'<img style="float:left" src="img/_map_assets/uploads/002.jpg" width="50%" height="auto" float="left" alt=""/>'+
+								'<div style="margin-left:220px">'+
+     							'<p><h1 style="color:#2980b9">Terresa N.</h1>Check it out! Rocky & lively' +
+		   						'</div>';
+           var infowindow2 = new google.maps.InfoWindow({
+                      content: contentString2
+                 });    
+           google.maps.event.addListener(marker2, 'click', function() {
+                 infowindow2.open(map,marker2);
+               });
+			   
+         // Third photos
+          var marker3 = new google.maps.Marker({
+                           position: pos3,
+                           map: map,
+						   animation: google.maps.Animation.DROP,
+                           icon: image_photo
+                         });
+           var contentString3 = 	'<div id="content" style="color:black">'+
+		   						'<img style="float:left" src="img/_map_assets/uploads/003.jpg" width="50%" height="auto" float="left" alt=""/>'+
+								'<div style="margin-left:220px">'+
+     							'<p><h1 style="color:#2980b9">Sebastian P.</h1>So much fun at Tonga Bay' +
+		   						'</div>';
+           var infowindow3 = new google.maps.InfoWindow({
+                      content: contentString3
+                 });    
+           google.maps.event.addListener(marker3, 'click', function() {
+                 infowindow3.open(map,marker3);
+               });
+
+	  }    
+      
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+    </script>
+</head>
+
+<body>
+
+
+<section id="login_stripe">Welcome, <strong>Jimmy</strong>
+  <button id="logout_btn">Log out</button>
+</section>
+
+<!-- Map   --> 
+<div id="map-canvas"></div>
+ 
+    <!--Nav bar -->
+<section id="site_footer">
+  <a href="people.html">
+  <button class="footer_btn">
+       <img src="img/back_icon.png" alt="" width="20" height="18" id="back_icon"/>
+  </button>
+  </a>
+  <a href="main.html">
+  <button class="footer_btn home">
+       <img src="img/Home_icon.png" alt="" width="20" height="18" id="home_icon"/>
+  </button>
+  </a>
+  <a href="event.html">
+  <button class="footer_btn">
+    <img src="img/forward_icon.png" alt="" width="20" height="18" id="forward_icon"/>
+  </button>
+  </a>
+</section>
+
+</body>
+</html>
