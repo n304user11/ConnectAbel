@@ -1,0 +1,119 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<title>ConnectAbel</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/main_page_style.css">
+<link href="css/people_page_style.css" rel="stylesheet" type="text/css">
+
+<!--Script links-->
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="script/respond.min.js"></script>
+<!--End script link-->
+
+ <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+    <style>
+     html, #map-canvas {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+      }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd6qfQRhjyx-59w8Ydl4OG1EwDE-goGcw">
+    </script>
+    <script type="text/javascript">
+      
+      function initialize() {
+        
+        var image_people = 'img/_map_assets/icon_people.png';
+        var image_me = 'img/_map_assets/icon_me.png';
+        var myLatlng = new google.maps.LatLng(-40.933746, 173.031120);
+        
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 15
+          
+        };
+         
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        
+        //  Map Mark 
+        var marker = new google.maps.Marker({
+            position: map.getCenter(),
+            map: map,
+            icon: image_me
+           
+           });
+           
+         
+         // Place Mark on map 
+         google.maps.event.addListener(map, 'click', function(event) {
+               placeMarker(event.latLng);
+          });
+          
+          
+          // Add 10 markers to the map at random locations within park's region.
+          var southWest = new google.maps.LatLng(-40.969992, 172.934382);
+          var northEast = new google.maps.LatLng(-40.864989, 173.060555);
+          var bounds = new google.maps.LatLngBounds(southWest,northEast);
+                     map.fitBounds(bounds);
+          var lngSpan = northEast.lng() - southWest.lng();
+          var latSpan = northEast.lat() - southWest.lat();
+          
+          for (var i = 0; i < 15; i++) {
+             var location = new google.maps.LatLng(southWest.lat() + latSpan * Math.random(),
+                 southWest.lng() + lngSpan * Math.random());
+             var marker = new google.maps.Marker({
+                           position: location,
+                           map: map,
+						   animation: google.maps.Animation.DROP,
+                           icon: image_people
+                         });
+            }
+      } 
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+    </script>
+</head>
+
+<body>
+
+
+<section id="login_stripe">Welcome, <strong>Jimmy</strong>
+  <button id="logout_btn">Log out</button>
+</section>
+
+<!-- Map   --> 
+<div id="map-canvas"></div>
+ 
+    <!--Nav bar -->
+<section id="site_footer">
+  <a href="main.html">
+  <button class="footer_btn">
+       <img src="img/back_icon.png" alt="" width="20" height="18" id="back_icon"/>
+  </button>
+  </a>  <a href="main.html">
+  <button class="footer_btn home">
+       <img src="img/Home_icon.png" alt="" width="20" height="18" id="home_icon"/>
+  </button>
+  </a>  <a href="photo.html">
+  <button class="footer_btn">
+    <img src="img/forward_icon.png" alt="" width="20" height="18" id="forward_icon"/>
+  </button>
+</a></section>
+
+</body>
+</html>
